@@ -8,10 +8,10 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 575159689BEFB442 &&
     apt-get update && \
     apt-get install -y stack
 
-
+USER $NB_USER
 
 # Set up a working directory for IHaskell
-RUN mkdir /ihaskell
+RUN sudo mkdir -p /ihaskell
 WORKDIR /ihaskell
 
 # Set up stack
@@ -37,7 +37,7 @@ COPY main /ihaskell/main
 RUN stack build && stack install
 
 # Run the notebook
-RUN mkdir /notebooks
+RUN sudo mkdir -p /notebooks
 
 
 
@@ -46,4 +46,3 @@ ENTRYPOINT stack exec -- jupyter notebook --NotebookApp.port=8888 '--NotebookApp
 EXPOSE 8888
 
 
-USER $NB_USER
