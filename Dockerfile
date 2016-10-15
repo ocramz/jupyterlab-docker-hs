@@ -1,0 +1,1 @@
+FROM ocramz/jupyterlab-docker
