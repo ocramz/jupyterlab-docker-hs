@@ -11,10 +11,11 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 575159689BEFB442 &&
     apt-get install -y stack pkg-config
 
 
+WORKDIR ${HOME}/ihaskell
 
 COPY ipython-kernel ipython-kernel
 
-RUN chown $NB_USER ${HOME}/ihaskell/ipython-kernel
+RUN chown $NB_USER ipython-kernel
 
 
 
@@ -30,7 +31,7 @@ RUN mkdir ${HOME}/ihaskell && \
 
 # Set up a working directory for IHaskell
 
-WORKDIR ${HOME}/ihaskell
+
 
 # Set up stack
 COPY stack.yaml stack.yaml
