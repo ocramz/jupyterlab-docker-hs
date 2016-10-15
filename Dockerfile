@@ -1,11 +1,14 @@
 FROM ocramz/jupyterlab-docker
 
+USER root
 
 # Install stack from the FPComplete repositories.
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 575159689BEFB442 && \
     echo 'deb http://download.fpcomplete.com/ubuntu trusty main' > /etc/apt/sources.list.d/fpco.list && \
     apt-get update && \
     apt-get install -y stack
+
+USER $NB_USER
 
 # Set up a working directory for IHaskell
 RUN mkdir /ihaskell
