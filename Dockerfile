@@ -54,7 +54,14 @@ RUN stack build && stack install
 
 RUN ihaskell install
 
-ENTRYPOINT stack exec -- jupyter lab --no-browser --NotebookApp.port=8888 '--NotebookApp.ip=*' --NotebookApp.notebook_dir=${HOME}/notebooks
+
+ENTRYPOINT tini --
+
+CMD stack exec -- /usr/local/bin/start.sh jupyter lab --no-browser
+
+
+
+# ENTRYPOINT stack exec -- jupyter lab --no-browser --NotebookApp.port=8888 '--NotebookApp.ip=*' --NotebookApp.notebook_dir=${HOME}/notebooks
 
 # ENTRYPOINT stack exec -- jupyter notebook --NotebookApp.port=8888 '--NotebookApp.ip=*' --NotebookApp.notebook_dir=/notebooks
 
