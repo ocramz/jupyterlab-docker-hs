@@ -32,6 +32,7 @@ RUN stack setup
 # Install dependencies for IHaskell
 COPY ipython-kernel ipython-kernel
 
+RUN chown $NB_USER ${HOME}/ihaskell/ipython-kernel
 
 RUN stack build --only-snapshot
 
