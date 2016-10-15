@@ -8,7 +8,7 @@ ENV HOME /home/$NB_USER
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 575159689BEFB442 && \
     echo 'deb http://download.fpcomplete.com/ubuntu trusty main' > /etc/apt/sources.list.d/fpco.list && \
     apt-get update && \
-    apt-get install -y stack
+    apt-get install -y stack pkg-config
 
 USER $NB_USER
 
