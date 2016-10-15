@@ -10,7 +10,7 @@ name:                ihaskell
 version:             0.8.4.0
 
 -- A short (one-line) description of the package.
-synopsis:            A Haskell backend kernel for the IPython project.
+synopsis:            A Haskell backend kernel for the JupyterLab project.
 
 -- A longer description of the package.
 description:         IHaskell is a Haskell backend kernel for the IPython project. This allows using Haskell via 
