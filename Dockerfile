@@ -10,6 +10,14 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 575159689BEFB442 &&
     apt-get update && \
     apt-get install -y stack pkg-config
 
+
+
+COPY ipython-kernel ipython-kernel
+
+RUN chown $NB_USER ${HOME}/ihaskell/ipython-kernel
+
+
+
 USER $NB_USER
 
 RUN mkdir ${HOME}/ihaskell && \
@@ -30,9 +38,7 @@ RUN stack setup
 
 
 # Install dependencies for IHaskell
-COPY ipython-kernel ipython-kernel
 
-RUN chown $NB_USER ${HOME}/ihaskell/ipython-kernel
 
 RUN stack build --only-snapshot
 
