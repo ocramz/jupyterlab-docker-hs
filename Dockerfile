@@ -8,10 +8,16 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 575159689BEFB442 &&
     apt-get update && \
     apt-get install -y stack
 
+RUN mkdir /ihaskell && \
+    mkdir /notebooks
+
+
 USER $NB_USER
 
+
+
 # Set up a working directory for IHaskell
-RUN sudo mkdir -p /ihaskell
+
 WORKDIR /ihaskell
 
 # Set up stack
@@ -37,7 +43,7 @@ COPY main /ihaskell/main
 RUN stack build && stack install
 
 # Run the notebook
-RUN sudo mkdir -p /notebooks
+
 
 
 
