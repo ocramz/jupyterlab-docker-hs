@@ -21,8 +21,7 @@ RUN chown $NB_USER ipython-kernel
 
 USER $NB_USER
 
-RUN mkdir ${HOME}/ihaskell && \
-    mkdir ${HOME}/notebooks
+RUN mkdir ${HOME}/notebooks
 
 
 
