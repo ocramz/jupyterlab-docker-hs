@@ -15,7 +15,8 @@ WORKDIR ${HOME}/ihaskell
 
 COPY ipython-kernel ipython-kernel
 
-RUN chown $NB_USER ipython-kernel
+RUN chown $NB_USER ipython-kernel && \
+    chown $NB_USER ihaskell
 
 
 
